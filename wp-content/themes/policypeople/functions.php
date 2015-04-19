@@ -51,7 +51,8 @@ function policypeople_setup() {
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'main-nav' => 'Nav Menu, Bottom of Header',
-		'sub-nav' => 'Policy Menu, Top of Header'
+		'sub-nav' => 'Policy Menu, Top of Header',
+		'foot-nav' => 'Footer Menu, Bottom of Page'
 	) );
 
 	/*

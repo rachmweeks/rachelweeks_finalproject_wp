@@ -8,15 +8,21 @@
  */
 ?>
 
-	</div><!-- #content -->
+</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'policypeople' ) ); ?>"><?php printf( __( 'Proudly powered by %s', 'policypeople' ), 'WordPress' ); ?></a>
-			<span class="sep"> | </span>
-			<?php printf( __( 'Theme: %1$s by %2$s.', 'policypeople' ), 'policypeople', '<a href="http://underscores.me/" rel="designer">Underscores.me</a>' ); ?>
-		</div><!-- .site-info -->
+		<nav id="footernav" class="main-navigation">
+			<?php
+				$policy_menu_top = array (
+					'theme_location' => 'foot-nav',
+					'container' => 'nav',
+					'container_id' => 'footer-nav',
+				);
+			?>
+			<?php wp_nav_menu( $policy_menu_top ); ?>
+		</nav>
 	</footer><!-- #colophon -->
+	
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
