@@ -28,7 +28,8 @@
 			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img id="ns_logo" src='http://localhost:8888/northstar/wp-content/themes/policypeople/img/northstar.png'></a>
 		</div><!-- .site-branding -->
 
-		<nav id="policynav">
+		<div id="blue">
+		<nav id="policynav" class="main-navigation">
 			<?php
 				$policy_menu_top = array (
 					'theme_location' => 'sub-nav',
@@ -38,6 +39,8 @@
 			?>
 			<?php wp_nav_menu( $policy_menu_top ); ?>
 		</nav>
+		</div><!--#blue-->
+		<div id="grey">
 		<nav id="site-navigation" class="main-navigation" role="navigation">
 			<?php
 				$main_menu_bottom = array (
@@ -48,6 +51,7 @@
 			?>
 			<?php wp_nav_menu( $main_menu_bottom ); ?>
 		</nav><!-- #site-navigation -->
+		</div><!--#grey-->
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">
