@@ -168,7 +168,7 @@ function create_my_post_types() {
 		)
 	);
 
-register_post_type( 'bio', 
+	register_post_type( 'bio', 
 		array(
 			'labels' => array(
 				'name' => __( 'Author Bio' ),
@@ -177,6 +177,21 @@ register_post_type( 'bio',
 				'add_new_item' => __( 'New Bio' ),
 				'view' => __( 'View Bio' ),
       			'view_item' => __( 'View Bio' ),	
+			),
+			'supports' => array( 'title', 'author', 'thumbnail', 'excerpt', 'comments', 'page-attributes' ),
+			'public' => true,
+		)
+	);
+	
+	register_post_type( 'short', 
+		array(
+			'labels' => array(
+				'name' => __( 'Policy Short' ),
+				'singular_name' => __( 'Short' ),
+				'add_new' => __( 'Add New Short' ),
+				'add_new_item' => __( 'New Short' ),
+				'view' => __( 'View Short' ),
+      			'view_item' => __( 'View Short' ),	
 			),
 			'supports' => array( 'title', 'author', 'thumbnail', 'excerpt', 'comments', 'page-attributes' ),
 			'public' => true,

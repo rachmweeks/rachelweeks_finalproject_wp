@@ -6,48 +6,53 @@ Template Name: Home
 get_header(); ?>
 
 		
-		<main>
-			<h2>Featured Research:</h2>
-			<section>
-				<!--Report Title-->			
-				<h3>Valuing the Whole Child: Education Beyond Test Scores</h3>
-				<!--Report Snippet-->
-				<p>How education money gets spent reflects a combination of statewide values, local values, and the priorities emphasized by state policy.</p>
-				<!--Link to Report Page-->
-				<a>Read More</a>
-			</section>
-			<section>
-				<!--Report Title-->			
-				<h3>Minnesota Moves Ahead: Tax Fairness in the 50 States</h3>
-				<!--Report Snippet-->
-				<p>Over the course of the last decade, state and local taxes in Minnesota became increasingly regressive.</p>
-				<!--Link to Report Page-->
-				<a>Read More</a>
-			</section>
-			<section>
-				<!--Report Title-->			
-				<h3>Local Lessons: Five Case Studies in Community-Driven Education Reform</h3>
-				<!--Report Snippet-->
-				<p>Despite the rhetoric from national school reformers, with their grand plans to overhaul education, some of the most successful education advancements come when we listen and work with students, parents, and teachers.</p>
-				<!--Link to Report Page-->
-				<a>Read More</a>
-			</section>
-		</main>
+	<main id="home">
+		<h2>Featured Research:</h2>			
+				<?php
+					$hp = array( 'post_type' => 'report', 'posts_per_page' => 3 );
+					$loop = new WP_Query( $hp );
+					while ( $loop->have_posts() ) : $loop->the_post();
+					  echo '<section class="featured"></p><img src="';
+					  the_field ('cover');
+					  echo '">';
+					  echo '<h3><a href="';
+					  the_permalink();
+					  echo '">';
+					  the_title();
+					  echo '</a></h3><p class="entry-content">';
+					  the_excerpt();
+					  echo '</section>';
+					endwhile;
+				?>
+	</main>
+	
+	
+	
+	
 		<aside>
-			<h2>Most Popular</h2>
+			<h2>Policy Shorts</h2>
 			<ul>
-				<!--Auto Pupulated Based on Clicks-->
-				<li>Blog1</li>
-				<li>Blog2</li>
-				<li>Blog3</li>
+				<?php
+					$hp = array( 'post_type' => 'short', 'posts_per_page' => 3 );
+					$loop = new WP_Query( $hp );
+					while ( $loop->have_posts() ) : $loop->the_post();
+					  echo '<li><a href="';
+					  the_permalink();
+					  echo '">';
+					  the_title();
+					  echo '</a></li><p class="entry-content">';
+					endwhile;
+				?>
 			</ul>
 			<h2>Join the Conversation</h2>
-			<ul>
-				<!--Auto Populated with Recent Comments-->
-				<li>Comment1</li>
-				<li>Comment2</li>
-				<li>Comment3</li>
-			</ul>
+					<?php
+						$comments = get_comments('status=approve&number=5');
+						foreach($comments as $comment) :?>
+							<?php $my_id = $comment->comment_post_ID ; $post_id_comms = get_post($my_id); $title = $post_id_comms->post_title;?> 
+						<h3>On <a href="<?php echo get_permalink($my_id) ?>#comment-<?php echo $comment->comment_post_ID?>" title="on <?php echo $title ?>"><?php echo $title ?></a>
+						<?php echo($comment->comment_author);?> says: </h3>
+						<p>" <?php echo($comment->comment_content);?> "</p>
+					 <?php endforeach;?>
 		</aside>
 	
 <?php get_sidebar(); ?>
