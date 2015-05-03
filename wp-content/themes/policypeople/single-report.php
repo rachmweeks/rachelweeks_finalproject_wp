@@ -5,7 +5,7 @@ Template Name: Report
 
 get_header(); ?>
 
-<main id="main">
+<main class="article" id="main">
 	<section>
 		<p class="intro" >Report</p>
 		<p class="date"><?php the_field('publication_date'); ?></p>

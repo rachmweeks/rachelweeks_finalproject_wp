@@ -289,7 +289,7 @@ h1 {
 	margin: 10px 0 16px 0;
 }
 
-h2 {
+.article h2 {
 	font-family:Open Sans, sans-serif;
 	font-size: 1.4em;
 	color: #04345c;
@@ -297,7 +297,7 @@ h2 {
 	text-transform: uppercase;
 }
 
-h3 {
+.article h3 {
 	font-size: 1.3em;
 	margin: 2em 0 1em 0;
 }
@@ -342,6 +342,99 @@ h3 {
 aside p {
 	font-size: .9em;
 }
+
+#home h3 a {
+	color: #04345c;
+	font-family: Gentium, serif;
+	text-decoration: none;
+	font-size: 1.6em;
+}
+
+#home h3 a:hover {
+	color: #719ebd;
+}
+
+#home p {
+	color: #333;
+	margin: 10px 0 0 0;
+}
+
+.featured1 h2 {
+	color: #719ebd;
+	margin: 0 0 .8em 0;
+	font-size: 1.2em;
+	font-weight: normal;
+	text-transform: uppercase;
+}
+
+.featured1 h3 {
+	padding: 0;
+	margin: 0;
+	font-size: 1.4em;
+}
+
+.featured2 h3 {
+	font-size: 1em;
+}
+
+.home_aside h2 {
+	font-family: Gentium, serif;
+	font-size: 1.6em;
+	margin: 0;
+	padding: 0 0 15px 0;
+	text-transform: none;
+	color: #719ebd;
+	letter-spacing: .05em;
+}
+
+.home_aside ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.home_aside li {
+	text-decoration: none;
+	padding: 0 0 20px 0;
+	font-size: 1.2em;
+}
+
+.home_aside a {
+	color: #04345c;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.home_aside a:visited {
+	color: #04345c;
+}
+
+.home_aside a:hover {
+	color: #719ebd;
+}
+
+.home_aside h4 {
+	margin: 0;
+	padding: 0;
+	color: #04345c;
+	font-size: .9em;
+}
+
+.home_aside h4 a {
+	color: #719ebd;
+}
+
+.home_aside h4 a:hover {
+	color: #04345c;
+}
+
+.home_aside p {
+	color: #666;
+	margin: 5px 0 30px 0;
+	font-size: 1.1em;
+}
+
+
 
 /*--------------------------------------------------------------
 # Elements
@@ -397,34 +490,56 @@ footer {
 }
 
 #home {
-	width: 75%;
+	width: 70%;
+	min-width: 500px;
 	float: left;
 	background-color: white;	
-	padding: 1% 3% 10% 3%;
+	padding: 2% 5% 10% 2%;
 }
 
 #home img {
 	height: 250px;
 	float: right;
+	padding: 10px;
 }
 
 .entry-content {
 	float: left;
 }
 
-.featured {
+.featured1 {
+	padding: 2%;
+	margin: 0 0 3% 0;
+	background-color: #d3e1ea;
 	width: 100%;
+}
+
+.featured2 {
+	width: 48%;
+	float: left;
+	padding: 0 2% 0 2%;
+	margin: 0 2% 0 0;
+}
+
+#recent section:nth-of-type(1) {
+	border-right: 3px solid #bbb;
+}
+
+.featured2 h3 {
 	padding: 0;
+	margin: 0;
 }
 
-.featured section {
-	width: 5%;
+.home_aside {
+	width: 30%;
+	background-color: white;
+	margin: 0;
+	padding: 2% 3% 2% 0;
 }
 
-if( $wp_query->current_post == 0 ) { 
-	width: 10%;
- }
-
+#comment_feed {
+	margin: 30px 0 0 0;
+}
 
 blockquote:before,
 blockquote:after,
