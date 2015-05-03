@@ -9,10 +9,27 @@ get_header(); ?>
 	<main id="home">
 		<h2>Featured Research:</h2>			
 				<?php
-					$hp = array( 'post_type' => 'report', 'posts_per_page' => 3 );
+					$hp = array( 'post_type' => 'report', 'posts_per_page' => 1 );
 					$loop = new WP_Query( $hp );
 					while ( $loop->have_posts() ) : $loop->the_post();
-					  echo '<section class="featured"></p><img src="';
+					  echo '<section class="featured1"></p><img src="';
+					  the_field ('cover');
+					  echo '">';
+					  echo '<h3><a href="';
+					  the_permalink();
+					  echo '">';
+					  the_title();
+					  echo '</a></h3><p class="entry-content">';
+					  the_excerpt();
+					  echo '</section>';
+					endwhile;
+				?>
+				
+				<?php
+					$hp = array( 'post_type' => 'report', 'posts_per_page=2&offset=1' );
+					$loop = new WP_Query( $hp );
+					while ( $loop->have_posts() ) : $loop->the_post();
+					  echo '<section class="featured2"></p><img src="';
 					  the_field ('cover');
 					  echo '">';
 					  echo '<h3><a href="';
